@@ -48,12 +48,21 @@ public class Questions {
 	
 	private static String questionStringOutput(String question) {
 		System.out.print(question + ":");
+		while(!scanner.hasNext("[A-Za-z]+")) {
+			System.out.println("Please enter a valid string input.");
+			scanner.next();
+			System.out.print(question + ":");
+		}
 		return scanner.next();
 	}
 	
 	private static int questionIntegerOutput(String question) {
 		System.out.print(question + ":");
+		while(!scanner.hasNextInt()) {
+			System.out.println("Please enter a number.");
+			scanner.next();
+			System.out.print(question + ":");
+		}
 		return scanner.nextInt();
 	}
-
 }
