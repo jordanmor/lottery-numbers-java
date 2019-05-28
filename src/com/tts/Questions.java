@@ -13,44 +13,45 @@ public class Questions {
 	}
 	
 	public static void askMainQuestions() {
-		String favoritePet = askQuestionStringOutput("What is your favorite pet?");
-		String actorName = askQuestionStringOutput("What is the first name of the your favorite actor or actress?");
-		int petAge = askQuestionIntegerOutput("What is the age of your pet?");
-		int luckyNumber = askQuestionIntegerOutput("What is your lucky number?");
-		int carYear = askQuestionIntegerOutput("What is two-digit model year of their car?");
-		int chosenNumber = askQuestionIntegerOutput("Enter a random number between 1 and 50.");
+		String favoritePet = questionStringOutput("What is your favorite pet?");
+		String actorName = questionStringOutput("What is the first name of the your favorite actor or actress?");
+		int petAge = questionIntegerOutput("What is the age of your pet?");
+		int luckyNumber = questionIntegerOutput("What is your lucky number?");
+		int carYear = questionIntegerOutput("What is two-digit model year of their car?");
+		int chosenNumber = questionIntegerOutput("Enter a random number between 1 and 50.");
 		
 		LotteryNumbers.generate(favoritePet, petAge, luckyNumber, carYear, actorName, chosenNumber);
 	}
 		
 	public static boolean interactive() {		
 		System.out.print("Do you wish to continue to the interactive portion? (yes,no):");
-		String response = scanner.next().toLowerCase();
-		if(Objects.equals(response, "yes") || Objects.equals(response, "y")) {
-			return true;
-		} else {
-			return false;
-		}
+		return createBooleanResponse(scanner.next());
 	}	
 	
 	public static boolean repeat() {
 		System.out.println("Would like to answer questions to generate another set of numbers? (yes,no):");
-		String response = scanner.next().toLowerCase();
-		if(Objects.equals(response, "yes") || Objects.equals(response, "y")) {
-			return true;
-		} else {
+		boolean response = createBooleanResponse(scanner.next());
+		if(response == false) {
 			System.out.println("Thank you for participating in this survey.");
 			scanner.close();
-			return false;
 		}
+		return response;
 	}
 	
-	private static String askQuestionStringOutput(String question) {
+	private static boolean createBooleanResponse(String response) {
+		response = response.toLowerCase();
+		if(Objects.equals(response, "yes") || Objects.equals(response, "y")) {
+			return true;
+		}
+		return false;
+	}
+	
+	private static String questionStringOutput(String question) {
 		System.out.print(question + ":");
 		return scanner.next();
 	}
 	
-	private static int askQuestionIntegerOutput(String question) {
+	private static int questionIntegerOutput(String question) {
 		System.out.print(question + ":");
 		return scanner.nextInt();
 	}
