@@ -8,7 +8,7 @@ public class Questions {
 	static Scanner scanner = new Scanner(System.in);
 	
 	public static void askName() {
-		System.out.println("Please enter your name: ");
+		System.out.print("Please enter your name: ");
 		while(!scanner.hasNext("[A-Za-z]+")) {
 			scanner.next();
 			System.out.println("Please enter a valid name.");
@@ -17,21 +17,30 @@ public class Questions {
 	}
 	
 	public static void askMainQuestions() {
-		String favoritePet = questionStringOutput("What is your favorite pet?");
+		String favoritePet = questionStringOutput("What is your favorite pet's name?");
+		while(favoritePet.length() < 3) {
+			favoritePet = questionStringOutput("Please enter a pet's name with a least three characters");
+		}
 		
 		int petAge = questionIntegerOutput("What is the age of your pet?");
+		while(petAge < 1 || petAge > 100) {
+			petAge = questionIntegerOutput("Please enter a valid number for the age of your pet");
+		}
 		
 		int luckyNumber = questionIntegerOutput("What is your lucky number? (Please choose a number between 1 and 100)");
-		while(luckyNumber < 1 || luckyNumber > 99) {
+		while(luckyNumber < 1 || luckyNumber > 100) {
 			luckyNumber = questionIntegerOutput("That number was outside the permitted range. Please enter your lucky number (between 1 and 100)");
 		}
 		
 		int carYear = questionIntegerOutput("What is the two-digit model year of your car?");
-		while(carYear < 0 || carYear > 99) {
+		while(carYear < 0 || carYear > 100) {
 			carYear = questionIntegerOutput("Please enter a valid two-digit model year of your car");
 		}
 		
 		String actorName = questionStringOutput("What is the first name of the your favorite actor or actress?");
+		while(actorName.length() < 3) {
+			actorName = questionStringOutput("Please enter an actor's or actress's name with a least three characters");
+		}
 		
 		int chosenNumber = questionIntegerOutput("Enter a random number between 1 and 50");
 		while(chosenNumber < 1 || chosenNumber > 50) {

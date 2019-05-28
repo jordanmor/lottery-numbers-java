@@ -6,7 +6,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		/* =====-=====-=====-=====-=====
-		   ********** STEP 1 ***********
+		   ********** STEP 1 **********
 		   =====-=====-=====-=====-===== */
 		
 		System.out.println("The following are valid characters for input");
