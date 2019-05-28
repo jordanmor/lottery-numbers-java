@@ -22,29 +22,37 @@ public class Questions {
 		
 		LotteryNumbers.generate(favoritePet, petAge, luckyNumber, carYear, actorName, chosenNumber);
 	}
+		
+	public static boolean interactive() {		
+		System.out.print("Do you wish to continue to the interactive portion? (yes,no):");
+		String response = scanner.next().toLowerCase();
+		if(Objects.equals(response, "yes") || Objects.equals(response, "y")) {
+			return true;
+		} else {
+			return false;
+		}
+	}	
 	
-	public static String askQuestionStringOutput(String question) {
+	public static boolean repeat() {
+		System.out.println("Would like to answer questions to generate another set of numbers? (yes,no):");
+		String response = scanner.next().toLowerCase();
+		if(Objects.equals(response, "yes") || Objects.equals(response, "y")) {
+			return true;
+		} else {
+			System.out.println("Thank you for participating in this survey.");
+			scanner.close();
+			return false;
+		}
+	}
+	
+	private static String askQuestionStringOutput(String question) {
 		System.out.print(question + ":");
 		return scanner.next();
 	}
 	
-	public static int askQuestionIntegerOutput(String question) {
+	private static int askQuestionIntegerOutput(String question) {
 		System.out.print(question + ":");
 		return scanner.nextInt();
 	}
-	
-	public static void repeat(String response, boolean repeat) {
-		System.out.println("Would like to answer questions to generate another set of numbers? (yes,no):");
-		response = scanner.next().toLowerCase();
-		if(Objects.equals(response, "yes") || Objects.equals(response, "y")) {
-			repeat = true;
-		} else {
-			repeat = false;
-			System.out.println("Thank you for participating in this survey.");
-			scanner.close();
-		}
-	}
-	
-	
 
 }

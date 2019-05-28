@@ -2,7 +2,7 @@ package com.tts;
 
 public class LotteryNumbers {
 	public static void generate(String favoritePet, int petAge, int luckyNumber ,int carYear, String actorName, int chosenNumber) {
-		final int MAX_RANDOM_NUMBER = 65;
+//		final int MAX_RANDOM_NUMBER = 65;
 		final int MAX_MAGIC_BALL = 75;
 
 		// Magic Ball
