@@ -1,6 +1,7 @@
 package com.tts;
 
 public class LotteryNumbers {
+	// Generate 5 lottery numbers and one magic ball using valid user input from the 6 questions
 	public static void generate(String favoritePet, int petAge, int luckyNumber ,int carYear, String actorName, int chosenNumber) {
 
 		System.out.println("Chosen numbers: " + favoritePet + ", " + petAge + ", " + luckyNumber + ", " + carYear + ", " + actorName + ", " + chosenNumber);
@@ -8,6 +9,7 @@ public class LotteryNumbers {
 		// Generate number by multiplying lucky number by random number with range of 1 - 12;
 		int magicBall = luckyNumber * (int)(Math.random() * 12);
 		
+		// Initialize array with a length of six for lottery numbers
 		int lotteryArray[] = new int[5];
 		
 		// Lottery Number 1
@@ -29,18 +31,22 @@ public class LotteryNumbers {
 		// Lottery Number 5
 		// Pet age + lucky number minus a random number with a range of 1 - 18.
 		lotteryArray[4] = petAge + luckyNumber - (int)(Math.random() * 18);
-		
-		System.out.println("Lottery numbers: " + lotteryArray[0] + ", " + lotteryArray[1] + ", " + lotteryArray[2] + ", " + lotteryArray[3] + ", " + lotteryArray[4] + " Magic Ball: " + magicBall);
-		
+				
+		// Loop through lottery array and make sure each number is less than max value of 65
 		for(int x = 0; x < lotteryArray.length; x++) {
 			lotteryArray[x] = validateNumberValue(lotteryArray[x], 65);
 		}
 		
+		// Make sure magic ball number is less than max value of 75
 		magicBall = validateNumberValue(magicBall, 75);
 		
+		// Print out lottery numbers and magic ball number to user
 		System.out.println("Lottery numbers: " + lotteryArray[0] + ", " + lotteryArray[1] + ", " + lotteryArray[2] + ", " + lotteryArray[3] + ", " + lotteryArray[4] + " Magic Ball: " + magicBall);
 	}
 	
+	// Function checks whether number is above max value
+	// If so, the max number is subtracted from the number until the number is below the max value
+	// The number is returned when it is less than the max value
 	private static int validateNumberValue(int input, int maxValue) {
 		while(input > maxValue) {
 			input -= maxValue;

@@ -10,15 +10,17 @@ public class Main {
 		   =====-=====-=====-=====-===== */
 		
 		System.out.println("The following are valid characters for input");
-//		AsciiChars.printNumbers();
-//		AsciiChars.printUpperCase();
-//		AsciiChars.printLowerCase();
+		// Print the valid ASCII number values for numbers, lower case letters and upper case letters
+		AsciiChars.printNumbers();
+		AsciiChars.printUpperCase();
+		AsciiChars.printLowerCase();
 		
 		/* =====-=====-=====-=====-=====
 		   ********** STEP 2 ***********
 		   =====-=====-=====-=====-===== */
 		
-		Survey.begin();
+		// Start interactive command-line program
+		Survey.start();
 	}
 
 }
