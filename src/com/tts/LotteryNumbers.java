@@ -1,5 +1,7 @@
 package com.tts;
 
+import java.util.Arrays;
+
 public class LotteryNumbers {
 	// Generate 5 lottery numbers and one magic ball using valid user input from the 6 questions
 	public static void generate(String favoritePet, int petAge, int luckyNumber ,int carYear, String actorName, int chosenNumber) {
@@ -39,10 +41,11 @@ public class LotteryNumbers {
 		// Make sure magic ball number is less than max value of 75
 		magicBall = validateNumberValue(magicBall, 75);
 		
-		int lotteryArrayWithoutDuplicates[] = eliminateDuplicateNums(lotteryArray);
+		lotteryArray = (removeDuplicates(lotteryArray));
+		Arrays.sort(lotteryArray);
 		
 		// Print out lottery numbers and magic ball number to user
-		printLotteryNumbers(lotteryArrayWithoutDuplicates, magicBall);
+		printLotteryNumbers(lotteryArray, magicBall);
 	}
 	
 	// Function checks whether number is above max value
@@ -58,7 +61,7 @@ public class LotteryNumbers {
 	// Function checks array of lottery numbers for duplicate numbers
 	// Any duplicate number is changed to a random number from 1 - 65
 	// Loop continues until all duplicate numbers are removed and replaced with unique numbers
-	private static int[] eliminateDuplicateNums(int[] array) {
+	private static int[] removeDuplicates(int[] array) {
 
 		boolean duplicates;
 			
@@ -84,4 +87,5 @@ public class LotteryNumbers {
 	private static void printLotteryNumbers(int[] array, int magicBall) {
 		System.out.println("Lottery numbers: " + array[0] + ", " + array[1] + ", " + array[2] + ", " + array[3] + ", " + array[4] + " Magic Ball: " + magicBall);
 	}
+	
 }
